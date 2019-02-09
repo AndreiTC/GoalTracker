@@ -1,0 +1,33 @@
+<h5>Details</h5>
+<div *ngIf="task">
+    <table>
+        <tr>
+            <td>Difficulty</td>
+            <td><i>{{task.difficulty}}</i></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><i>{{task.category}}</i></td>
+        </tr>
+        <tr>
+            <td>Time</td>
+            <td><i>{{task.taskDetails.timeFrame}}</i></td>
+        </tr>
+        <tr> 
+            <td>Percentage completed</td>
+            <td><i>15%</i></td>
+        </tr>
+        <tr>
+            <td>With problems</td>
+            <td><i>Yes</i></td>
+        </tr>
+        <tr >
+            <td>Description</td>
+            <td><i>{{task.description}}</i></td>
+        </tr>
+        <tr>
+            <td>Users</td>
+            <td><i>Spoukey94, Elmon4, Krolw</i></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,47 @@
+<div  class="modal">
+  <form (ngSubmit)="submitMethod()" #heroForm="ngForm" >
+    <div class="container modal-content animate">
+        <div  *ngIf="!forgotPassword" class="form-group">
+            <label for="name"><b>Username</b></label>
+            <input  type="text" class="form-control" required minlength="6" maxlength="30" id="name" 
+            [(ngModel)]="user.name" placeholder="Enter Username" name="name" #name="ngModel" (ngModelChange)="user.name=trim(user.name)" >
+            <div [hidden]="name.valid || name.pristine"
+              class="alert alert-danger">
+              Name is too short
+            </div>
+        </div>
+
+        <div *ngIf="!forgotPassword" class="form-group">
+          <label for="password"><b>Password</b></label>
+          <input type="password" class="form-control" minlength="8" maxlength="30" required id="password"
+           [(ngModel)]="user.password" name="password" placeholder="Enter Password" #password="ngModel" (ngModelChange)="user.password=trim(user.password)">
+            <div [hidden]="password.valid || password.pristine"
+              class="alert alert-danger">
+              Password is too short
+            </div>
+        </div>       
+
+        <div *ngIf="signIn || forgotPassword" class="form-group">
+          <label for="email"><b>Email</b></label>
+          <input type="email" class="form-control" id="email" email (ngModelChange)="user.email=trim(user.email)"
+          [(ngModel)]="user.email" name="email" maxlength="60" placeholder="Enter email" #email="ngModel" required>
+          <div [hidden]="email.valid || email.pristine"
+            class="alert alert-danger">
+            Email is invalid
+          </div>           
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">
+          <label *ngIf="forgotPassword">Recover</label>
+          <label *ngIf="signIn">Sign In</label>
+          <label *ngIf="!forgotPassword && !signIn">Log in</label>
+        </button>
+        <div [hidden]="!statusMessage"
+            class="alert alert-danger">
+            {{statusMessage | titlecase}}
+          </div> 
+        <p for="signIn"><input id="signIn" [disabled]="forgotPassword" [(ngModel)]="signIn" name="signIn" type="checkbox">Sign in</p>
+        <p for="forgotPassword"><input id="forgotPassword" [disabled]="signIn"  [(ngModel)]="forgotPassword" name="forgotPassword" type="checkbox">Forgot password</p>
+    </div>
+  </form>
+</div>
