@@ -1,17 +1,8 @@
-<nav><br>
-    <div>
-      <span>Welcome, <strong>Mike</strong></span><br>
-    </div>
-  <hr>
+<nav>
   <div>
-    <h5>Dashboard</h5>
+    <a [routerLink]='["/dashboard"]'>Overview</a>
   </div>
   <div>
-      <div class="column menu">
-        <a [routerLink]='["/dashboard"]'>Overview</a>
-      </div>
-      <div class="column menu">
-        <a [routerLink]='["/task"]'>New task</a>
-      </div>
+    <a [routerLink]='["/task"]'>New task</a>
   </div>
 </nav>

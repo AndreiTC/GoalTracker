@@ -1,6 +1,17 @@
-<div class="row header">
-    <div class="column column-70"></div>
-    <div class="column column-30">
-        <h1>AbOn</h1>
-    </div>
+<div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Goal Tracker</a>
+                  
+        <div class="dropdown" dropdown>
+            <a class="nav-item dropdown-toggle text-light" dropdownToggle>
+                {{user | titlecase }}
+            </a>
+                
+            <div class="dropdown-menu dropdown-menu-right " *dropdownMenu>
+                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" (click)="logout()" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+            </div>
+        </div>
+    </div> 
 </div>

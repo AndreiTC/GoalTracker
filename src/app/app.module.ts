@@ -6,9 +6,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogInComponent } from './modules/log-in/log-in.component';
 import { LogInService } from './modules/log-in/log-in.service';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
-import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 import { AppComponent } from './modules/app/app.component';
 import { MainModule } from './modules/main/main.module';
+import { AlertifyService } from './shared/services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { MainModule } from './modules/main/main.module';
     AppRoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    LogInService
+ //   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    LogInService,
+    AlertifyService
   ],
   bootstrap: [AppComponent]
 })

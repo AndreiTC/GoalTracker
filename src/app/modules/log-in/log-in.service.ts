@@ -9,35 +9,22 @@ import { Injectable } from '@angular/core';
 export class LogInService {
 constructor(private http: HttpClient) {}
 
-    logIn(user: User) {
-        const jsonUser = JSON.stringify(user);
-        const authenticateUrl = 'https://localhost:44362/api/User/login';
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
-        headers = headers.append('Content-type', 'application/json-patch+json');
-        return this.http.post(authenticateUrl, jsonUser, {headers: headers})
-        .pipe(map((response: User) => {
+    logIn(user: any) {
+        const authenticateUrl = 'https://localhost:44368/api/User/login';
+        return this.http.post(authenticateUrl, user)
+        .pipe(map((response: any) => {
             if (response && response.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(response));
+                localStorage.setItem('token', response.token);
             }
             return response;
         }));
     }
-    signIn(user: User) {
-        const jsonUser = JSON.stringify(user);
-        const authenticateUrl = 'https://localhost:44362/api/User/signin';
-        let headers: HttpHeaders = new HttpHeaders();
-        headers = headers.append('Accept', 'application/json');
-        headers = headers.append('Content-type', 'application/json-patch+json');
-        return this.http.post(authenticateUrl, jsonUser, {headers: headers})
-        .pipe(map((response: object) => {
+    signIn(user: any) {
+        const authenticateUrl = 'https://localhost:44368/api/User/register';
+        return this.http.post(authenticateUrl, user)
+        .pipe(map((response: any) => {
             return response;
         }));
-    }
-
-    logout() {
-        localStorage.removeItem('currentUser');
     }
 
     recoverPassword(user: User) {

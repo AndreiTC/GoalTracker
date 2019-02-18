@@ -7,7 +7,7 @@ import { AuthGuard } from 'src/app/shared/guards/auth-guard';
 
 const routes: Routes = [
   {path: '', component: MainComponent , canActivate: [AuthGuard],
-  children:[ 
+  children: [
     { path: '', pathMatch: 'full', redirectTo: 'dashboard'},
     { path: 'dashboard',  component: DashboardComponent  },
     { path: 'task', component: TaskComponent}

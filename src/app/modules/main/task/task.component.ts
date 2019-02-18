@@ -10,22 +10,21 @@ import { MainService } from '../main.service';
 })
 export class TaskComponent implements OnInit {
 
-  task = 
+  task =
   {
-    category:'',
-    description:'',
+    category: '',
+    description: '',
     difficulty: {
       difficultyLevel: ''
     }
   } as Task;
-  constructor(private mainService:MainService) { }
+  constructor(private mainService: MainService) { }
 
   ngOnInit() {
 
   }
 
-  addTask()
-  {
+  addTask() {
     this.mainService.addTask(this.task).subscribe();
   }
 }

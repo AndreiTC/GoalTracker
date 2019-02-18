@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { TaskListComponent } from './dashboard/task-list/task-list.component';
 import { CommonModule } from '@angular/common';
 import { TaskDetailsComponent } from './dashboard/task-list/task-details/task-details.component';
+import { BsDropdownModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { TaskDetailsComponent } from './dashboard/task-list/task-details/task-de
   imports: [
     MainRoutingModule,
     FormsModule,
-    CommonModule 
+    BsDropdownModule.forRoot(),
+    CommonModule,
   ],
   providers: [],
   bootstrap: [MainComponent]

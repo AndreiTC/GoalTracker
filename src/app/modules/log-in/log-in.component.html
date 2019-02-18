@@ -23,7 +23,7 @@
 
         <div *ngIf="signIn || forgotPassword" class="form-group">
           <label for="email"><b>Email</b></label>
-          <input type="email" class="form-control" id="email" email (ngModelChange)="user.email=trim(user.email)"
+          <input type="email" class="form-control" id="email" email 
           [(ngModel)]="user.email" name="email" maxlength="60" placeholder="Enter email" #email="ngModel" required>
           <div [hidden]="email.valid || email.pristine"
             class="alert alert-danger">
@@ -37,9 +37,9 @@
           <label *ngIf="!forgotPassword && !signIn">Log in</label>
         </button>
         <div [hidden]="!statusMessage"
-            class="alert alert-danger">
-            {{statusMessage | titlecase}}
-          </div> 
+          class="alert alert-danger">
+          {{statusMessage | titlecase}}
+        </div>
         <p for="signIn"><input id="signIn" [disabled]="forgotPassword" [(ngModel)]="signIn" name="signIn" type="checkbox">Sign in</p>
         <p for="forgotPassword"><input id="forgotPassword" [disabled]="signIn"  [(ngModel)]="forgotPassword" name="forgotPassword" type="checkbox">Forgot password</p>
     </div>
